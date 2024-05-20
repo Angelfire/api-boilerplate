@@ -1,0 +1,23 @@
+**/node_modules/
+
+# Logs
+**/npm-debug.log*
+**/pnpm-debug.log*
+
+# Editor directories and files
+.DS_Store
+**/.vscode/
+
+**/.env
+**/.env.local
+
+**/.cache/
+
+**/logs/
+
+**/tmp/
+
+**/.git/
+
+// Local ignores
+src/db-data/*

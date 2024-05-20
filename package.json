@@ -1,0 +1,22 @@
+{
+  "name": "boilerplate-api",
+  "version": "1.0.0",
+  "description": "API Boilterplate",
+  "type": "module",
+  "scripts": {
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "start": "node --env-file=.env --watch src/server.js"
+  },
+  "author": {
+    "name": "Andrés Bedoya",
+    "url": "https://srhart.co/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.3"
+  }
+}
