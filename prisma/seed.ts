@@ -125,21 +125,21 @@ async function seed() {
 				create: [
 					{
 						id: 'd27a197e',
-						title: 'Basic Koala Facts',
+						title: 'Basic Andy Facts',
 						content:
-							'Koalas are found in the eucalyptus forests of eastern Australia. They have grey fur with a cream-coloured chest, and strong, clawed feet, perfect for living in the branches of trees!'
+							'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					},
 					{
 						id: '414f0c09',
-						title: 'Koalas like to cuddle',
+						title: 'Andy likes bears',
 						content:
-							'Cuddly critters, koalas measure about 60cm to 85cm long, and weigh about 14kg.'
+							'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 					},
 					{
 						id: '260366b1',
 						title: 'Not bears',
 						content:
-							"Although you may have heard people call them koala 'bears', these awesome animals aren’t bears at all – they are in fact marsupials. A group of mammals, most marsupials have pouches where their newborns develop."
+							'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					}
 				]
 			}
