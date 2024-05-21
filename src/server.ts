@@ -1,4 +1,4 @@
-import express, { type Express, type Request, type Response } from "express"
+import express, { type Express, type Request, type Response } from 'express'
 
 const PORT = process.env.API_PORT || 8080
 
