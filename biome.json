@@ -10,34 +10,34 @@
 		}
 	},
 	"formatter": {
-    "enabled": true,
-    "formatWithErrors": false,
-    "indentStyle": "tab",
-    "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 80,
-    "attributePosition": "auto",
-    "ignore": [
-      "**/.DS_Store",
-      "**/node_modules",
-      "**/npm-debug.log",
-      "*/package-lock.json",
-      "**/.vscode",
-      "**/*.log",
-      "**/package/",
-      "**/package-lock.json"
-    ]
-  },
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "space",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 80,
+		"attributePosition": "auto",
+		"ignore": [
+			"**/.DS_Store",
+			"**/node_modules",
+			"**/npm-debug.log",
+			"*/package-lock.json",
+			"**/.vscode",
+			"**/*.log",
+			"**/package/",
+			"**/package-lock.json"
+		]
+	},
 	"javascript": {
-    "formatter": {
-      "quoteProperties": "asNeeded",
-      "trailingComma": "none",
-      "semicolons": "asNeeded",
-      "arrowParentheses": "asNeeded",
-      "bracketSpacing": true,
-      "bracketSameLine": false,
-      "quoteStyle": "single",
-      "attributePosition": "auto"
-    }
-  }
+		"formatter": {
+			"quoteProperties": "asNeeded",
+			"trailingComma": "none",
+			"semicolons": "asNeeded",
+			"arrowParentheses": "asNeeded",
+			"bracketSpacing": true,
+			"bracketSameLine": false,
+			"quoteStyle": "single",
+			"attributePosition": "auto"
+		}
+	}
 }
