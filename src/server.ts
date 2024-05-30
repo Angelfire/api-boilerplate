@@ -1,4 +1,4 @@
-import express, { type Express } from "express"
+import express, { type Express, type Request, type Response } from "express"
 
 import { errorHandler } from "./middleware/error-handler"
 import { logger } from "./middleware/log-events"
@@ -21,14 +21,14 @@ app.use(express.json())
 // User routes (v1)
 app.use("/v1/users", userRouter)
 
-// Error handler middleware
-app.use(errorHandler)
-
 // 404 route handler (optional)
 // This should be the last route handler in the file to catch all routes that are not defined above it
-// app.use((req: Request, res: Response) => {
-//   res.status(404).json({ message: "Not found" })
-// })
+app.use((_req: Request, res: Response) => {
+  res.status(404).json({ message: "Not found" })
+})
+
+// Error handler middleware
+app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(`App runing on http://localhost:${PORT}`)
