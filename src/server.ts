@@ -1,5 +1,7 @@
 import express, { type Express, type Request, type Response } from "express"
 
+import userRouter from "./routes/user-routes"
+
 const PORT = process.env.API_PORT ?? 8080
 
 const app: Express = express()
@@ -10,9 +12,8 @@ app.disable("x-powered-by")
 // Middleware to parse incoming requests with JSON payloads
 app.use(express.json())
 
-app.get("/", (req: Request, res: Response) => {
-  res.json({ message: "It's working on docker" })
-})
+// User routes (v1)
+app.use("/v1/users", userRouter)
 
 // 404 route handler (optional)
 // This should be the last route handler in the file to catch all routes that are not defined above it
