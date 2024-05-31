@@ -32,7 +32,7 @@ export const logger = (
   _res: Response,
   next: NextFunction,
 ): void => {
-  logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, "reqLog.txt")
+  logEvents(`${req.method}\t${req.headers.host}\t${req.url}`, "reqLog.txt")
   console.log(`${req.method} ${req.path}`)
   next()
 }
