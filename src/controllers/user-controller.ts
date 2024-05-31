@@ -25,13 +25,42 @@ export const getAllUsers = async (_req: Request, res: Response) => {
   }
 }
 
-export const getUserById = async (req: Request, res: Response) => {
+export const getUserByIdentifier = async (req: Request, res: Response) => {
+  const { identifier } = req.params
+
   try {
-    const { id } = req.params
+    let user: Prisma.UserCreateInput | null
+
+    // Regex to check if the identifier is a valid CUUID
+    if (typeof identifier === "string" && /^c[^\s-]{24,}$/.test(identifier)) {
+      user = await prisma.user.findUnique({
+        where: { id: identifier },
+      })
+    } else if (typeof identifier === "string") {
+      user = await prisma.user.findUnique({
+        where: { username: identifier },
+      })
+    } else {
+      return res.status(400).json({ error: "Invalid identifier" })
+    }
+
+    if (user) {
+      res.json(user)
+    } else {
+      res.status(404).json({ error: "User not found" })
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" })
+  }
+}
+
+export const getUserByUsername = async (req: Request, res: Response) => {
+  try {
+    const { username } = req.params
 
     const user = await prisma.user.findUnique({
       where: {
-        id,
+        username,
       },
       select: {
         id: true,
