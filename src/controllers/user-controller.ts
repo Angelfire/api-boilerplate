@@ -4,7 +4,7 @@ import type { Request, Response } from "express"
 
 const prisma = new PrismaClient()
 
-export const getAllUsers = async (req: Request, res: Response) => {
+export const getAllUsers = async (_req: Request, res: Response) => {
   try {
     const users = await prisma.user.findMany({
       select: {
@@ -24,6 +24,32 @@ export const getAllUsers = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal Server Error" })
   }
 }
+
+export const getUserById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+      },
+    })
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found." })
+    }
+
+    res.json(user)
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" })
+  }
+}
+
 export const createUser = async (req: Request, res: Response) => {
   try {
     const { email, username, password } = req.body
