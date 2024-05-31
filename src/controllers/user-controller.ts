@@ -115,3 +115,35 @@ export const createUser = async (req: Request, res: Response) => {
     }
   }
 }
+
+export const deleteUserByIdentifier = async (req: Request, res: Response) => {
+  const { identifier } = req.params
+
+  try {
+    let user: Prisma.UserCreateInput | null
+
+    // Regex to check if the identifier is a valid CUID
+    if (typeof identifier === "string" && /^c[^\s-]{24,}$/.test(identifier)) {
+      user = await prisma.user.findUnique({
+        where: { id: identifier },
+      })
+    } else if (typeof identifier === "string") {
+      user = await prisma.user.findUnique({
+        where: { username: identifier },
+      })
+    } else {
+      return res.status(400).json({ error: "Invalid identifier" })
+    }
+
+    if (user) {
+      await prisma.user.delete({
+        where: { id: user.id },
+      })
+      res.json({ message: "User deleted successfully" })
+    } else {
+      res.status(404).json({ error: "User not found" })
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" })
+  }
+}
