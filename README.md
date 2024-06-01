@@ -2,11 +2,14 @@
 
 ## Docker
 
-### Build
+<details>
+  <summary>Build</summary>
+  
 This command builds the Docker image using the instructions in your `Dockerfile`. The `-t` flag tags the image with a name.
 ```sh
 docker build -t your_image_name .
 ```
+</details>
 
 ### Run Docker Compose
 Use `docker-compose` to start all services defined in your `compose.yml` file. This command will pull any necessary images, build your services, and start the containers.
