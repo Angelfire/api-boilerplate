@@ -73,7 +73,7 @@
     <summary>Create a new migration</summary>
     Creates a new migration file based on the changes in your `schema.prisma` and applies it to your database.
     
-    ```sh
+    ```
     npx prisma migrate dev --name migration_name
     ```
   </details>
@@ -81,7 +81,7 @@
     <summary>Apply pending migrations</summary>
     Applies all pending migrations to the database.
 
-    ```sh
+    ```
     npx prisma migrate deploy
     ```
   </details>
