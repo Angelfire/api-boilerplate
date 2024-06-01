@@ -2,6 +2,7 @@ import express, { type Express, type Request, type Response } from "express"
 
 import { errorHandler } from "./middleware/error-handler"
 import { logger } from "./middleware/log-events"
+import { limiter } from "./middleware/rate-limit"
 
 import userRouter from "./routes/user-routes"
 
@@ -14,6 +15,9 @@ app.disable("x-powered-by")
 
 // custom middleware logger
 app.use(logger)
+
+// Apply the rate limiting middleware to all requests
+app.use(limiter)
 
 // Middleware to parse incoming requests with JSON payloads
 app.use(express.json())
@@ -31,5 +35,5 @@ app.use((_req: Request, res: Response) => {
 app.use(errorHandler)
 
 app.listen(PORT, () => {
-  console.log(`App runing on http://localhost:${PORT}`)
+  console.log(`App running on http://localhost:${PORT}`)
 })
