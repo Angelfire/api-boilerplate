@@ -4,7 +4,7 @@ import { errorHandler } from "./middleware/error-handler"
 import { logger } from "./middleware/log-events"
 import { limiter } from "./middleware/rate-limit"
 
-import userRouter from "./routes/user-routes"
+import userRouter from "./routes/user.routes"
 
 const PORT = process.env.API_PORT ?? 8080
 
